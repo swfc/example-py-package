@@ -1,0 +1,37 @@
+[project]
+name = "example-py-package"
+dynamic = ["version"]
+description = "A small example package"
+authors = [
+  { name = "Example Author", email = "author@example.com" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.9"
+dependencies = [
+  "requests>2",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+
+[tool.setuptools_scm]
+write_to = "example_py_package/_version.py"
+
+[build-system]
+requires = ["setuptools >= 61.0.0", "wheel", "setuptools_scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
