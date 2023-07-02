@@ -22,7 +22,7 @@ dependencies = [
 "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
 
 [tool.setuptools_scm]
-write_to = "example_py_package/_version.py"
+write_to = "src/example_py_package/_version.py"
 
 [build-system]
 requires = ["setuptools >= 61.0.0", "wheel", "setuptools_scm[toml]"]
