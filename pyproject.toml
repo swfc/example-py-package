@@ -22,6 +22,7 @@ dependencies = [
 "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
 
 [tool.setuptools_scm]
+version_scheme = "post-release"
 write_to = "src/example_py_package/_version.py"
 
 [build-system]
