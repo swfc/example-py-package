@@ -1,21 +1,15 @@
-{% set data = load_setup_py_data() %}
-{% set version = GIT_DESCRIBE_TAG if GIT_DESCRIBE_TAG.startswith('v') else 'v' + GIT_DESCRIBE_TAG %}
-{% set number = GIT_DESCRIBE_NUMBER|int %}
-{% set hash = GIT_DESCRIBE_HASH %}
-{% set build_number = number if number else '0' %}
-
 package:
-  name: my_package
+  name: example-py-package
   version: {{ GIT_DESCRIBE_TAG }}
 
 source:
-  git_url: ../..
-  git_rev: master
+  git_url: ..
+  git_rev: {{ GIT_FULL_HASH }}
 
 build:
   noarch: python
   number: {{ GIT_DESCRIBE_NUMBER }}
-  string: py{{ GIT_DESCRIBE_HASH }}_{{ hash }}
+  string: py{{ GIT_DESCRIBE_HASH }}
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
@@ -24,8 +18,8 @@ requirements:
     - pip
     - setuptools
   run:
-    - python >=3.9
+    - python =3.9
 
 test:
   imports:
-    - my_package
+    - example_py_package
