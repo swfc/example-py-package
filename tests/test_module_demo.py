@@ -1,4 +1,3 @@
-import pytest
 from example_py_package.module_demo import print_something
 
 

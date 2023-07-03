@@ -26,3 +26,11 @@ requirements:
 test:
   imports:
     - example_py_package
+  requires:
+    - pytest
+    - pytest-cov
+  source_files:
+    - tests
+  commands:
+    - pytest
+
