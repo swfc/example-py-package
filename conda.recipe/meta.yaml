@@ -1,8 +1,6 @@
-{% set version = os.environ.get('PKG_VERSION', '0.0.0') %}
-
 package:
   name: example-py-package
-  version: "{{ version }}"
+  version: "{{ GIT_DESCRIBE_TAG }}"
 
 source:
   git_url: ..
@@ -10,7 +8,8 @@ source:
 
 build:
   noarch: python
-  string: ""
+  number: {{ GIT_DESCRIBE_NUMBER }}
+  string: py{{ GIT_DESCRIBE_HASH }}_{{ GIT_DESCRIBE_NUMBER }}
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
