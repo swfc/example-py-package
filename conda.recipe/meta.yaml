@@ -9,7 +9,7 @@ source:
 build:
   noarch: python
   number: {{ GIT_DESCRIBE_NUMBER }}
-  string: py{{ GIT_DESCRIBE_HASH }}
+  string: py{{ GIT_DESCRIBE_HASH }}_{{ GIT_DESCRIBE_NUMBER }}
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
@@ -17,6 +17,8 @@ requirements:
     - python >=3.9
     - pip
     - setuptools
+    - wheel
+    - setuptools_scm[toml]
   run:
     - python =3.9
     - requests >2
