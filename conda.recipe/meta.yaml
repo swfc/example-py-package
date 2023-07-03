@@ -18,7 +18,7 @@ requirements:
     - pip
     - setuptools
     - wheel
-    - setuptools_scm[toml]
+    - setuptools_scm
   run:
     - python =3.9
     - requests >2
