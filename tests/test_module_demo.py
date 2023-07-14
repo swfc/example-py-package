@@ -1,8 +1,8 @@
-from example_py_package.module_demo import print_something
+from example_py_package.snake import say
 
 
-def test_print_something(capsys):
-    print_something("hello")
+def test_say(capsys):
+    say("hello")
     captured = capsys.readouterr()
-    assert captured.out == "hello\n"
+    assert "hello" in captured.out
     assert captured.err == ""
