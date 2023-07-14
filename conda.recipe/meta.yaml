@@ -10,23 +10,25 @@ build:
   noarch: python
   number: {{ GIT_DESCRIBE_NUMBER }}
   string: py{{ GIT_DESCRIBE_HASH }}_{{ GIT_DESCRIBE_NUMBER }}
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: "{{ PYTHON }} -m pip install --no-deps --no-index --no-build-isolation --force-reinstall . -vv"
 
 requirements:
   host:
-    - python >=3.9
+    - conda  # Need when no system installed conda
+    - python>=3.9
     - pip
     - setuptools
     - wheel
     - setuptools_scm
   run:
-    - python =3.9
-    - requests >2
+    - python=3.9
+    - requests>2
 
 test:
   imports:
     - example_py_package
   requires:
+    - conda  # Need when no system installed conda
     - pytest
     - pytest-cov
   source_files:
