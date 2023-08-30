@@ -10,7 +10,7 @@ build:
   noarch: python
   number: {{ GIT_DESCRIBE_NUMBER }}
   string: py{{ GIT_DESCRIBE_HASH }}_{{ GIT_DESCRIBE_NUMBER }}
-  script: "{{ PYTHON }} -m pip install --no-deps --no-index --no-build-isolation --force-reinstall . -vv"
+  script: "{{ PYTHON }} -m pip install --no-deps --no-index --no-build-isolation . -vv"
 
 requirements:
   host:
